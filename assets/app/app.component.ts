@@ -26,6 +26,10 @@ export class AppComponent {
     }
 
     join(){
+        if(this.user === undefined && this.room === undefined) {
+            window.alert("Please enter your name & room");
+            return;
+        }
         this._chatService.joinRoom({user:this.user, room:this.room});
         window.alert(`Hi ${this.user} you joined to ${this.room} room successfully!`);
     }
